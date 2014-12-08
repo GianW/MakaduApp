@@ -1,0 +1,38 @@
+<!-- START BLOCK : CSS -->
+<link href="../../css/adm.css" rel="stylesheet" type="text/css">
+<link href="../../css/inputs.css" rel="stylesheet" type="text/css">
+<link href="../../css/skin.css" rel="stylesheet" type="text/css">
+<!-- END BLOCK : CSS -->
+
+<!-- START BLOCK : PERGUNTA -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0; margin-top:15px;">
+  <tr>
+    <td height="30" bgcolor="#F27300" onclick="this.style.backgroundColor='#666666'"><span class="xP-5px-L" style="color:#FFFFFF; font-size:18px;">{titulo}</span></td>
+  </tr>
+</table>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0;">
+<tr>
+  <td width="5%" align="center" class="borda-right-5px" style="margin-bottom:0; font-size:18px;"><span class="branco-bold">{data}</span></td>
+  <td width="5%" align="center" class="borda-right-5px" style="margin-bottom:0; font-size:18px;"><span class="branco-bold">{hora}</span></td>
+  <td class="borda-right-5px" style="margin-bottom:0; font-size:24px;"><span class="branco-bold">{questionador} - {pergunta}</span></td>
+  <td width="1%" align="center" class="borda-right-5px" style="margin-bottom:0; font-size:24px;"><img src="../../imagens/{check}" width="20" height="20" onclick="ativo('{idpergunta}','pergunta', this);" id="check{idpergunta}2" name="{statusativo}" /></td>
+  </tr>
+</table>
+<!-- END BLOCK : PERGUNTA -->
+<!-- START BLOCK : RESPOSTA -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0; margin-bottom:30px;">
+<tr>
+  <td width="5%" align="center" style="margin-bottom:0; font-size:16px;"><span class="xP-5px-L">{data}</span></td>
+  <td width="5%" align="center"  style="margin-bottom:0; font-size:16px;"><span class="xP-5px-L">{hora}</span></td>
+  <td width="76%" style="margin-bottom:0; font-size:24px;"><span class="xP-5px-L">{nome} - {resposta}</span></td>
+  <td width="2%" align="center"  style="margin-bottom:0; font-size:22px;"><img src="../../imagens/{check}" width="20" height="20" onclick="ativo('{idpergunta}','pergunta', this);" id="check{idpergunta}" name="{statusativo}" /></td>
+  <td width="12%"  style="margin-bottom:0; font-size:24px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="margin:0; padding:0; border-right:#FFF 1px solid;"><a href="../perguntas/perguntas_edit.php?idpergunta={idpergunta}&amp;idevento={idevento}&amp;idprogramacao={idprogramcao}&amp;acao=atu"><img src="../../imagens/win8/editar.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a></td>
+      <td width="100" align="right" style="margin:0; padding:0;"><a href="../perguntas/perguntas_act.php?acao=rem&amp;idpergunta={idpergunta}&amp;idevento={idevento}&amp;idprogramacao={idprogramacao}" style="margin:0; padding:0;" onclick="return confirm('{confirm}')"><img src="../../imagens/win8/excluir.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a></td>
+    </tr>
+  </table></td>
+</tr>
+</table>
+<!-- END BLOCK : RESPOSTA -->

@@ -1,0 +1,157 @@
+<!-- START BLOCK : CSS -->
+<link href="../../css/adm.css" rel="stylesheet" type="text/css">
+<link href="../../css/inputs.css" rel="stylesheet" type="text/css">
+<link href="../../css/skin.css" rel="stylesheet" type="text/css">
+<!-- END BLOCK : CSS -->
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/smoothness/jquery-ui.css" type="text/css" />
+<script src="../../js/jquery.maskedinput-1.3.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+$(function($){   
+	$("#datainicio").mask("99/99/9999");
+	$("#datafim").mask("99/99/9999");
+});
+
+//DELETA MULTIPLOS USUARIOS------------------------------------------------------------------------------------
+function deletaMulti(id){
+	var ok = confirm('Você tem certeza que deseja remover este registro?');
+	if(ok){
+		var deletaStringMulti = "";
+		var objects = document.getElementsByTagName('input');
+		var inc = 0;
+		
+		for(var no = 0; no < objects.length; no++){
+			if(objects[no].name == 'multi[]'){
+				if(objects[no].checked){
+					inc++;
+					if(deletaStringMulti.length>0)deletaStringMulti = deletaStringMulti + ',';
+					deletaStringMulti = deletaStringMulti + objects[no].value;
+				}
+			}			
+		}
+		
+		if(inc>0){
+			window.location.href = 'avisos_act.php?deleta='+deletaStringMulti+'&acao=multirem&pagina={pagina}&idevento={idevento}';
+		}else{
+			alert('Selecione ao menos um aviso');
+		}
+	}
+}
+
+//AJAX ATIVO---------------------------------------------------------------------------------------------------
+function ativo(id, tipoativo, obj) {
+	$.ajax({
+		type: "POST",
+		url: "../adm/_ativo.php",
+		data: "tipoativo=" + tipoativo + "&id=" + id,
+		success: function(resposta) {
+			if(obj.name == '0'){
+				obj.src = '../../imagens/win8/checked.jpg';
+				obj.name = '1';
+			}else if(obj.name == '1'){
+				obj.src = '../../imagens/win8/unchecked.jpg';
+				obj.name = '0';
+			}
+			return false;			
+		},
+		error: function() {
+			alert('erro');	
+		}
+	});
+}
+
+function popup(){
+	$.facebox(function($) {
+		jQuery.get('popup.php', function(html) {  
+			jQuery.facebox(html);  
+		}); 
+	})
+}
+
+<!-- START BLOCK : POPUP -->
+popup();
+<!-- END BLOCK : POPUP -->
+
+function abreDados(){
+	window.location.href='analyticsdados.php?idevento={idevento}&datainicio=' + document.getElementById('datainicio').value + '&datafim=' + document.getElementById('datafim').value;	
+}
+</script>
+
+
+<!-- START BLOCK : ANALYTICS -->
+
+<!-- START BLOCK : HORA -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0;">
+            <tr style="margin:0; padding:0;">
+              <td height="30" class="borda-right-5px" style="margin-bottom:0; background:#F60"><span class="branco-bold">{data} - {hora}</span></td>
+              </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0; margin-bottom:30px;">
+        <tr style="margin:0; padding:0;">
+          <td width="50%" height="30" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">A&ccedil;&otilde;es deste Evento: {nomeevento}</span></td>
+          <td width="25%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Quantidade</span></td>
+          <td width="25%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Acessos &Uacute;nicos (por usu&aacute;rio logado) -BETA</span></td>
+        </tr>
+        <tr onmouseover="this.className='fundoListaHighlight'" onmouseout="this.className='fundoListaCor'" class='fundoListaCor'>
+          <td height="33"><span class="xP-5px-L"> Acessou o Evento</span></td>
+          <td><strong>{qtd7}</strong></td>
+          <td><strong>{qtd72}</strong></td>
+        </tr>
+        <tr onmouseover="this.className='fundoListaHighlight'" onmouseout="this.className='fundoListaBranco'" class='fundoListaBranco'>
+          <td height="33"><span class="xP-5px-L"> Seguiu Evento</span></td>
+          <td><strong>{qtd8}</strong></td>
+          <td><strong>{qtd82}</strong></td>
+        </tr>
+        <tr onmouseover="this.className='fundoListaHighlight'" onmouseout="this.className='fundoListaCor'" class='fundoListaCor'>
+          <td height="33"><span class="xP-5px-L"> Acessou Programa&ccedil;&atilde;o</span></td>
+          <td><strong>{qtd9}</strong></td>
+          <td><strong>{qtd92}</strong></td>
+        </tr>
+        <tr onmouseover="this.className='fundoListaHighlight'" onmouseout="this.className='fundoListaBranco'" class='fundoListaBranco'>
+          <td height="33"><span class="xP-5px-L"> Acessou Avisos</span></td>
+          <td><strong>{qtd10}</strong></td>
+          <td><strong>{qtd102}</strong></td>
+        </tr>
+        <tr onmouseover="this.className='fundoListaHighlight'" onmouseout="this.className='fundoListaCor'" class='fundoListaCor'>
+          <td height="33"><span class="xP-5px-L"> Acessou Perguntas da Capa</span></td>
+          <td><strong>{qtd11}</strong></td>
+          <td><strong>{qtd112}</strong></td>
+        </tr>
+        <tr onmouseover="this.className='fundoListaHighlight'" onmouseout="this.className='fundoListaBranco'" class='fundoListaBranco'>
+          <td height="33"><span class="xP-5px-L"> Acessou Downloads da Capa</span></td>
+          <td><strong>{qtd12}</strong></td>
+          <td><strong>{qtd122}</strong></td>
+        </tr>
+      </table>
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0; margin-top:32px; margin-bottom:30px;">
+        <tr style="margin:0; padding:0;">
+          <td width="50%" height="30" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Programas mais acessados deste evento</span></td>
+          <td width="10%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Acessos</span></td>
+          <td width="10%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Abriu &quot;Sobre a Palestra&quot;</span></td>
+          <td width="10%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Enviou pergunta</span></td>
+          <td width="10%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Baixou Material</span></td>
+          <td width="10%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Agendou Material</span></td>
+        </tr>
+        <!-- START BLOCK : QTDPROGRAMA -->
+        <tr onmouseover="this.className='fundoListaHighlight'" onmouseout="this.className='{bg}'" class='{bg}'>
+          <td height="33"><span class="xP-5px-L"> <strong>{titulo}</strong></span></td>
+          <td><strong>{qtdpr}</strong></td>
+          <td><strong>{qtdsp}</strong></td>
+          <td><strong>{qtdep}</strong></td>
+          <td><strong>{qtdbm}</strong></td>
+          <td><strong>{qtdam}</strong></td>
+        </tr>
+        <!-- END BLOCK : QTDPROGRAMA -->
+      </table>      
+    
+
+    
+    </td>
+  </tr>
+</table>
+<!-- END BLOCK : HORA -->
+<!-- END BLOCK : ANALYTICS -->

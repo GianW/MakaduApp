@@ -1,0 +1,55 @@
+<!-- START BLOCK : CSS -->
+<link href="../../css/adm.css" rel="stylesheet" type="text/css">
+<link href="../../css/inputs.css" rel="stylesheet" type="text/css">
+<link href="../../css/skin.css" rel="stylesheet" type="text/css">
+<style>
+body {
+	background-color:#FFF;	
+}
+</style>
+<!-- END BLOCK : CSS -->
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="93%" height="25"><span class="tit-negrito">Gerenciamento de Registro de A&ccedil;&otilde;es</span></td>
+        <td width="7%" height="20">&nbsp;</td>
+      </tr>
+    </table>
+   </td>
+  </tr> 
+  <tr>
+    <td>
+      <!-- START BLOCK : VAZIO -->
+      <span class="tit-negrito"><br />
+      Nenhum registro encontrado.</span>
+      <!-- END BLOCK : VAZIO -->
+		
+        <!-- START BLOCK : BLOCO -->
+        <br />
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#DBDBDB">
+          <tr>
+            <td width="40%" height="25" valign="middle" style="padding-left:2px;"><span class="tit-negrito"><a href="log_busca.php?buscanome={buscanome}&amp;buscaacao={buscaacao}&amp;buscasecao={buscasecao}&amp;buscade={buscade}&amp;buscaate={buscaate}" rel="facebox"><img src="../../imagens/botoes/buscar.gif" width="80" height="26" border="0" /></a> &nbsp;<a href="log.php?tipo={tipo}"><img src="../../imagens/botoes/limparbusca.gif" width="115" height="26" border="0" /></a></span></td>
+            <td width="20%" height="25" align="center" valign="middle" style="padding-left:10px;">Resultados: <span class="tit-negrito">{numtotal}</span></td>
+            <td width="40%" align="right" valign="middle" style="padding-right:2px;">
+            </td>
+          </tr>
+      </table>
+      <br />
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <!-- START BLOCK : PUBLICACOES -->
+          <tr onMouseOver="this.bgColor='#CCCCCC';" onMouseOut="this.bgColor='{color}'" bgColor='{color}'>
+            <td width="10%" height="22" class="xP-5px-L" style="font-size:13px;">{data} - {hora} - Usu&aacute;rio {nome} (id {idusuario}) {acao} {titulo} na se&ccedil;&atilde;o {secao}</td>
+          </tr>
+          <!-- END BLOCK : PUBLICACOES -->
+          
+          <tr>
+            <td align="center"><br />
+{paginacao} </td>
+   		  </tr>
+        	</table>
+   	  <!-- END BLOCK : BLOCO -->    
+    </td>
+  </tr>
+</table>

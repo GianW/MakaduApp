@@ -1,0 +1,372 @@
+/*==================================================================
+===> DECLARAÇÕES GERAIS
+==================================================================*/
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-size:11px;
+	color:#333;
+}
+
+body {
+	margin:0;
+	padding:0;
+	background-color: #FFFFFF;
+}
+
+a:active
+{
+	outline:none;
+	border:none;
+}
+
+a:focus
+{
+	-moz-outline-style:none;
+	outline:none;
+	border:none;
+}
+
+a { 
+	text-decoration:none;
+	outline:none;
+	border:none;
+}
+
+a:hover {
+	text-decoration:none; 
+	outline:none;
+	border:none;
+}
+
+input, textarea, select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-outline-style:none;
+  outline:none;
+  border:none;  
+}
+
+img {
+	border:0px;
+}
+
+
+/*==================================================================
+===> LOGIN DA ADM
+==================================================================*/
+.submit {
+	border:#1E5582 1px solid;
+	color:#1E5582;
+	padding:0 5px 0 5px;
+	height:18px;
+}
+.tit-branco {
+	color:#FFF;
+	font-size:13px;
+	font-weight:bold;
+}
+.azul-escuro-bold {
+	color:#1E5582;
+	font-weight:bold;
+}
+
+/*==================================================================
+===> PAGINACAO
+==================================================================*/
+
+div.pagination {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;		
+	text-align:left;
+	color:#014051;
+	font-size:19px;	
+}
+div.pagination a {
+	font-family: 'Open Sans', sans-serif;
+	border-right: 1px solid #ffffff;
+	margin-right:0px;
+	padding:2px 7px;
+	background-color:#4f96aa;
+	text-decoration: none;
+	color:#014051;
+	font-size:20px;
+	min-width:35px;
+}
+div.pagination a:hover, div.meneame a:active {
+	font-family: 'Open Sans', sans-serif;
+	border-right: 1px solid #ffffff;
+	background-color:#014051;
+	text-decoration:none;
+	color: #ffffff;
+	font-size:20px;
+	min-width:35px;
+}
+div.pagination span.current {
+	font-family: 'Open Sans', sans-serif;
+	margin-right:0px;
+	padding:2px 7px;
+	border-right: 1px solid #ffffff;
+	background-color:#014051;
+	color: #ffffff;
+	font-size:20px;
+	min-width:35px;
+}
+div.pagination span.disabled {
+	font-family: 'Open Sans', sans-serif;
+	padding:2px 7px;
+	border-right: 1px solid #ffffff;
+	color: #014051;
+	font-size:20px;	
+	min-width:35px;
+}
+
+/*==================================================================
+===> ESTILOS DE FONTE
+==================================================================*/
+.branco-bold {
+	color:#FFF;
+	font-size:13px;
+}
+.tit-negrito {
+	color:#000000;
+}
+.negrito {
+	font-weight:bold;
+	color:#333333;
+	font-size:11px;
+}
+.pequeno {
+	font-size:10px;
+	color:#333333;
+}
+.branco {
+	font-size:13px;
+	color:#FFFFFF;
+}
+.verm-bold {
+	color:#990000;
+	font-weight:bold;
+}
+
+/*==================================================================
+===> LAYOUT EXTERNO
+==================================================================*/
+
+.contgeral {
+	padding:5px 5px 5px 5px;
+	background-color: 4d4d4f;
+}
+
+.contgeralint {
+/*	padding:5px 5px 5px 5px;*/
+	background-color: 4d4d4f;
+/*	border-top:#000000 1px solid;
+	border-bottom:#000000 1px solid;
+	border-left:#000000 1px solid;
+	border-right:#000000 1px solid;*/
+}
+
+.conttopo {
+	color:#FFFFFF;
+}
+
+.contorno {
+	border-top:#000000 1px solid;
+	border-bottom:#000000 1px solid;
+	border-left:#000000 1px solid;
+	border-right:#000000 1px solid;
+	padding:0;
+	margin:0;
+}
+
+.contcont {
+	padding: 5px 5px 5px 5px;
+}
+
+/*==================================================================
+===> OUTROS ESTILOS
+==================================================================*/
+.tab-bemvindo {
+	border:#666 1px solid;
+}
+.borda-right-5px {
+/*	background: #CCC url(../imgs_adm/topolista.png);*/
+	padding:0 5px 0 5px;
+	border-right:#fff 1px solid;
+}
+
+.sortB {
+	/*background:#FFF;*/
+	border-right:#fff 1px solid;
+	padding:0 2px 0 2px;
+}
+
+.sortC {
+	/*background:#EAEAEA;*/
+	border-right:#fff 1px solid;
+	padding:0 2px 0 2px;
+}
+
+.sortD {
+/*	background:#FFD7D8;*/
+	border-right:#fff 1px solid;
+	padding:0 2px 0 2px;
+}
+
+#categorias {
+	padding:10px;
+}
+
+/*==================================================================
+===> INPUTS
+==================================================================*/
+
+#sortable-list				{ padding:0; }
+li.sortme 		 			{ padding:4px 8px; color:#000; cursor:move; list-style:none; width:500px; background:#ddd; margin:10px 0; border:1px solid #999; }
+#message-box				{ background:#fffea1; border:2px solid #fc0; padding:4px 8px; margin:0 0 14px 0; width:500px; }
+
+select {   
+	height:31px;
+	font-family: Arial, sans-serif;
+	outline:none;
+	background:#FFFFFF;
+	background-image:none;
+	border:#014051 1px solid;
+	font-size:12px;
+}
+
+option {	
+	height:20px;
+}
+
+/*select option:selected {
+    background:#FFFFFF;
+	background-image:none;
+	font-size:13px;
+}
+
+select option:focus {
+    background:#FFFFFF;
+	background-image:none;
+	border:#014051 1px solid;
+	font-size:13px;
+}*/
+
+.input-g {
+	width:430px;
+	border:#014051 1px solid;
+	font-family: 'Open Sans', sans-serif;
+	height:27px;
+	padding-left:3px;
+	outline:none;
+	font-size:14px;
+}
+
+.input-m {
+	width:200px;
+	border:#014051 1px solid;
+	font-family: 'Open Sans', sans-serif;
+	height:27px;
+	padding-left:3px;
+	outline:none;
+	font-size:14px;
+}
+
+.input-p {
+	width:100px;
+	border:#014051 1px solid;
+	font-family: 'Open Sans', sans-serif;
+	padding-left:3px;
+	height:27px;
+	outline:none;
+	font-size:14px;
+}
+
+.input-s {
+	width:80px;
+	border:#014051 1px solid;
+	font-family: 'Open Sans', sans-serif;
+	height:27px;
+	padding-left:3px;
+	outline:none;
+	font-size:14px;
+}
+
+.input-t {
+	width:40px;
+	border:#014051 1px solid;
+	font-family: 'Open Sans', sans-serif;
+	height:27px;
+	padding-left:3px;
+	outline:none;
+	font-size:14px;
+}
+
+.input-box {
+	width:450px;
+	border:#014051 1px solid;
+	font-family: 'Open Sans', sans-serif;
+	height:80px;
+	padding:3px;
+	outline:none;
+	font-size:14px;
+}
+
+.input-g:focus {
+	box-shadow: 0 0 5px rgba(1, 64, 81, 1);
+	padding: 3px 0px 3px 3px;
+	border:none;
+	font-size:14px;
+}
+
+.input-m:focus {
+	box-shadow: 0 0 5px rgba(1, 64, 81, 1);
+	padding: 3px 0px 3px 3px;
+	border:none;
+	font-size:14px;
+}
+
+.input-p:focus {
+	box-shadow: 0 0 5px rgba(1, 64, 81, 1);
+	padding: 3px 0px 3px 3px;
+	border:none;
+	font-size:14px;
+}
+
+.input-s:focus {
+	box-shadow: 0 0 5px rgba(1, 64, 81, 1);
+	padding: 3px 0px 3px 3px;
+	border:none;
+	font-size:14px;
+}
+
+.input-t:focus {
+	box-shadow: 0 0 5px rgba(1, 64, 81, 1);
+	padding: 3px 0px 3px 3px;
+	border:none;
+	font-size:14px;
+}
+
+.input-box:focus {
+	box-shadow: 0 0 5px rgba(1, 64, 81, 1);
+	padding: 3px 0px 3px 3px;
+	border:none;
+	font-size:14px;
+}
+
+div#container {
+	width:400px;
+}
+
+/*==================================================================
+===> SPACERS
+==================================================================*/
+.xP-5px-L	{ padding-left:5px; }
+.xP-5px-R	{ padding-right:5px; }
+
+.xP-10px-L 	{ padding:0 0 0 10px; }
+.xP-10px-R 	{ padding:0 10px 0 0; }
+.xP-10px 	{ padding:10px; }
+
+.xM-5px-R	{ margin-right:5px; }
+.xM-5px-LR	{ margin:0 5px 0 5px; }

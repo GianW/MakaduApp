@@ -1,0 +1,90 @@
+/*==================================================================
+===> SKIN (ENGLOBA PAGINAÇÃO)
+==================================================================*/
+/* barra do menu */
+.barraTopo {
+	background-color:#014051;	
+}
+
+.corPrimaria {
+	background-color:#014051;	
+}
+
+.corSecundaria {
+	background-color:#438699;	
+}
+
+.borda-right-5px {
+	background-color:#014051;
+	padding:0 5px 0 5px;
+	border-right:#fff 1px solid;
+}
+
+.borda-right-5px-secundaria {
+	background-color:#438699;
+	padding:0 5px 0 5px;
+	border-right:#fff 1px solid;
+}
+
+.fundoListaBranco {
+	background-color:#FFFFFF;
+}
+
+.fundoListaCor {
+	background-color:#E5EDEF;
+}
+
+.fundoListaHighlight {
+	background-color:#ABCAD1;	
+}
+
+/*==================================================================
+===> PAGINACAO
+==================================================================*/
+
+div.pagination {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;		
+	text-align:left;
+	color:#014051;
+	font-size:19px;	
+}
+div.pagination a {
+	font-family: 'Open Sans', sans-serif;
+	border-right: 1px solid #ffffff;
+	margin-right:0px;
+	padding:2px 7px;
+	background-color:#4f96aa;
+	text-decoration: none;
+	color:#014051;
+	font-size:20px;
+	min-width:35px;
+}
+div.pagination a:hover, div.meneame a:active {
+	font-family: 'Open Sans', sans-serif;
+	border-right: 1px solid #ffffff;
+	background-color:#014051;
+	text-decoration:none;
+	color: #ffffff;
+	font-size:20px;
+	min-width:35px;
+}
+div.pagination span.current {
+	font-family: 'Open Sans', sans-serif;
+	margin-right:0px;
+	padding:2px 7px;
+	border-right: 1px solid #ffffff;
+	background-color:#014051;
+	color: #ffffff;
+	font-size:20px;
+	min-width:35px;
+}
+div.pagination span.disabled {
+	font-family: 'Open Sans', sans-serif;
+	padding:2px 7px;
+	border-right: 1px solid #ffffff;
+	color: #014051;
+	font-size:20px;	
+	min-width:35px;
+}
+

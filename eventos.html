@@ -1,0 +1,101 @@
+<!-- START BLOCK : CSS -->
+<link rel="stylesheet" type="text/css" href="css/geral.css" />
+<!-- END BLOCK : CSS -->
+
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//ANALYTICS #########################################################################################
+	//analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, "acessou", "eventos");
+});
+</script>	
+
+<style>
+#eventos {
+	background: #8cf4d7; /* Old browsers */
+	background: -moz-linear-gradient(left,  #8cf4d7 0%, #bcfdb9 46%, #cafbb5 54%, #baeb75 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#8cf4d7), color-stop(46%,#bcfdb9), color-stop(54%,#cafbb5), color-stop(100%,#baeb75)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* IE10+ */
+	background: linear-gradient(to right,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cf4d7', endColorstr='#baeb75',GradientType=1 ); /* IE6-9 */
+}
+</style>
+
+<script type="text/javascript">
+$("#busca").keyup(function(){
+	$.ajax({
+		type: "POST",
+		url: "buscar.php",
+		data: "busca=" + document.getElementById('busca').value,
+		success: function(resposta) {
+			$('#resultados').html(resposta);
+			return false;			
+		},
+		error: function() {
+			abrePrompt('2');
+			$("#carregando").fadeOut();
+		}
+	});		
+});
+</script>
+
+<!-- CONTEUDO ################-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:35px;">
+  <tr>
+    <td align="center">
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="300" align="left"><img id="logo" src="layout/tituloEventos.png" width="284" height="58" style="margin-left:35px;" /></td>
+        <td align="right"><input name="busca" type="text" id="busca" onfocus="if(this.value == 'BUSCAR'){ this.value = ''; }" onblur="if(this.value == ''){ this.value = 'BUSCAR'; }" style="width:80%; height:45px; font-family: 'Raleway', Arial, serif; text-indent:10px; font-size:24px; border:#000 2px solid; padding:0; margin:0; margin-right:20px;" value="BUSCAR" /></td>
+      </tr>
+    </table>
+    
+    <br />
+    <span class="normal" style="color:#478C47; font-weight:bold; font-size:26px">Acesse o evento para mais informações</span>
+    <br />    
+    
+    <div id="resultados" style="margin:0; padding:0">
+        <!-- START BLOCK : EVENTO -->
+        <div style="position:relative; top:23px; left:-45%; width:34px; height:35px; background:url(layout/fundoEventos.png); margin:0; padding:0;"></div>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="160" align="left" id="eventos" onclick="mudaEvento('{idevento}'); mudaMenu(2); mostraMenu(); carregaModulo('evento.php?idevento={idevento}&id=' + idUser);">
+              <div style="margin-left:25px; margin-right:15px; margin-top:15px; margin-bottom:15px;">
+                  <span class="titulo">{nomeevento}</span><br />
+                  <span class="normal" style="color:#478C47; font-weight:bold; font-size:18px;">{cidade} - {datainicio}{datafim}</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <!-- END BLOCK : EVENTO -->
+        
+        <!-- START BLOCK : TITULOPASSADO -->
+        <div class="titulo" style="width:90%; height:52px; line-height:52px; background:#000000; text-align:center; margin-top:34px; color:#FFF">EVENTOS PASSADOS</div>
+        <!-- END BLOCK : TITULOPASSADO -->
+        
+        <!-- START BLOCK : EVENTOPASSADO -->
+        <div style="position:relative; top:23px; left:-45%; width:34px; height:35px; background:url(layout/fundoEventos.png); margin:0; padding:0;"></div>
+        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="160" align="left" id="eventos">
+              <div style="margin-left:25px; margin-right:15px; margin-top:15px; margin-bottom:15px;" onclick="mudaEvento('{idevento}'); mudaMenu(2); mostraMenu(); carregaModulo('evento.php?idevento={idevento}&id=' + idUser, '0');">
+                  <span class="titulo">{nomeevento}</span><br />
+                  <span class="normal" style="color:#478C47; font-weight:bold; font-size:18px;">{cidade} - {datainicio}{datafim}</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <!-- END BLOCK : EVENTOPASSADO --> 
+    </div>   
+    
+    <br />
+    <br />
+    
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,183 @@
+<!-- START BLOCK : CSS -->
+<link rel="stylesheet" type="text/css" href="css/geral.css" />
+<!-- END BLOCK : CSS -->
+
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//ANALYTICS #########################################################################################
+	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, "acessou", "programacao");
+});
+</script>	
+
+<style>
+.hora {
+	background: #8cf4d7; /* Old browsers */
+	background: -moz-linear-gradient(left,  #8cf4d7 0%, #bcfdb9 46%, #cafbb5 54%, #baeb75 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#8cf4d7), color-stop(46%,#bcfdb9), color-stop(54%,#cafbb5), color-stop(100%,#baeb75)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* IE10+ */
+	background: linear-gradient(to right,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cf4d7', endColorstr='#baeb75',GradientType=1 ); /* IE6-9 */
+	
+	width:95%;
+	height:44px;
+	line-height:44px;
+	text-align:center;
+	font-family: 'Raleway', Arial, serif;
+	font-size:28px;
+}
+
+.programa {	
+	width:95%;
+	height:auto;
+	padding-top:20px;
+	padding-bottom:20px;
+	line-height:24px;
+	text-align:center;
+	font-family: 'Raleway', Arial, serif;
+	font-size:30px;
+	background-color:#FFFFFF;
+	text-align:left;
+}
+
+#programacao {
+	background: #478c47; /* Old browsers */
+	background: -moz-linear-gradient(top,  #478c47 0%, #cae88e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#478c47), color-stop(100%,#cae88e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #478c47 0%,#cae88e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #478c47 0%,#cae88e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #478c47 0%,#cae88e 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #478c47 0%,#cae88e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#478c47', endColorstr='#cae88e',GradientType=0 ); /* IE6-9 */
+	
+	width:100%;
+	height:90px;
+	bottom:-91px;
+	left:0;
+	overflow-x:scroll;
+	overflow-y:hidden;
+	-webkit-overflow-scrolling:touch;
+	padding-left:20px;
+	z-index:45;
+	position:fixed;
+}	
+
+#conteiner {
+	position:absolute; 
+	z-index:3;
+	top:0px;  
+	bottom:0; 
+	width:100%;
+	overflow:scroll;
+	-webkit-overflow-scrolling:touch;
+	border:none;
+}	
+</style>
+
+<!-- PROGRAMA ################-->
+<div id="conteiner">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:35px; padding-left:35px; padding-right:35px;">
+      <tr>
+        <td align="center"> 
+        <div id="cab" style="width:100%; height:auto; margin:0; padding:0"> 
+            <span class="titulo">{nomeevento}</span> <br />
+            <span class="normal" style="color:#478C47; font-weight:bold; font-size:24px; line-height:30px;">{local}, {endereco}</span> <br />
+            <span class="normal" style="color:#478C47; font-weight:bold; font-size:24px; line-height:30px;">{cidade}, {estado}</span> <br />
+            <span class="normal" style="color:#478C47; font-weight:bold; font-size:24px; line-height:30px;">{datainicio}{datafim}</span><br /><br />
+        </div>
+        
+        <!-- START BLOCK : DIA -->
+        <div class="titulo" style="width:95%; height:40px; line-height:40px; background:#000000; text-align:center; margin-bottom:15px; color:#FFF; font-size:26px;">{data}</div>
+            <!-- START BLOCK : HORA -->            
+                <div id="hora{hora}{data}" class="hora" name="umahora">{hora}</div>  
+                <!-- START BLOCK : PROGRAMA -->
+                    <div id="programa{idprogramacao}" style="line-height:34px;" class="programa" onclick="document.getElementById('programacao').style.display='none'; carregaModulo('palestra.php?idevento=' + idEvento + '&idprogramacao={idprogramacao}&id=' + idUser, '0'); idProgramacao = {idprogramacao}">
+                    {titulo}<br />
+                    <span class="normal" style="color:#478C47; font-weight:bold; font-size:20px; line-height:22px;">{localprograma} {horainicio} {horafim}</span>
+                    <!-- START BLOCK : BREAK -->
+                    <br />
+                    <!-- END BLOCK : BREAK -->
+                    <!-- START BLOCK : PALESTRANTE -->
+                    <span class="normal" style="color:#666666; font-size:20px; line-height:22px;">&#8226; {nome} </span> 
+                    <!-- END BLOCK : PALESTRANTE -->
+                    </div>
+                    <!-- START BLOCK : RISCO -->
+                    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+                    <!-- END BLOCK : RISCO -->             
+                <!-- END BLOCK : PROGRAMA -->  
+            <!-- END BLOCK : HORA --> 
+        <!-- END BLOCK : DIA -->  
+        </td>
+      </tr>
+    </table>
+    <div style="width:100%; height:400px;" id="completa"></div>
+</div>
+
+<script type="text/javascript">
+$( "#conteiner" ).scroll(function() {
+	$("#programacao").css('bottom', '0');
+    clearTimeout($.data(this, 'scrollTimer'));
+    $.data(this, 'scrollTimer', setTimeout(function() {
+		$('.novahora').css('background-color', 'transparent');
+		$('.novahora').css('color', '#FFFFFF');
+		var horas = document.getElementsByName('umahora');
+		
+		for(j = horas.length - 1; j >= 0 ; j--){
+			idelem = horas[j].id;
+			if($( "#" + idelem ).position().top < 5){
+				$( "#" + idelem + "rod").css('background-color', '#FFFFFF');
+				$( "#" + idelem + "rod").css('color', '#000000');
+				$('#programacao').animate({scrollLeft: document.getElementById(idelem + "rod").offsetLeft - diferenca}, 500, "easeOutQuart");
+				break;
+			}
+		}
+    }, 50));
+});
+
+$('#completa').css('height', ($(window).height() - 270) + 'px');
+</script>
+
+<script type="text/javascript">
+
+$('#programacao').animate({bottom: '0'}, 200, "linear");
+
+<!-- START BLOCK : VAR -->
+var pos{pos} = document.getElementById('hora{horaid}{data}').offsetTop + 35;
+<!-- END BLOCK : VAR -->
+</script>
+
+<div id="programacao">
+    <!-- PROGRAMA ################-->
+    <div style="width:{tamanho}px; height:90px;">      
+        <!-- START BLOCK : NOVODIA -->
+        <div style="display:inline; float:left; text-align:center; width:75px; height:100%; line-height:40px; font-family: 'Raleway', Arial, serif; font-size:22px; color:#FFF">
+        {dia}
+        </div>
+            <!-- START BLOCK : NOVAHORA -->
+            <div name="hora" class="novahora" id="hora{horaid}{data}rod" style="display:inline; float:left; text-align:center; width:45px; height:100%; line-height:90px; font-family: 'Raleway', Arial, serif; font-size:24px; color:#FFF" onclick="move(pos{pos}, this);">
+            {hora}
+            </div>
+            <!-- END BLOCK : NOVAHORA -->     
+        <!-- END BLOCK : NOVODIA -->
+    </div>
+</div>
+
+<script type="text/javascript">
+	var diferenca = {diferenca};
+
+	function move(qualHora, obj){
+		posicao = qualHora + 'px';
+		$('#conteiner').animate({scrollTop: posicao}, 500, "easeOutQuart");
+		$('#programacao').animate({scrollLeft: obj.offsetLeft - diferenca}, 500, "easeOutQuart");
+		$("[name='hora']").css('background-color','transparent');
+		$("[name='hora']").css('color','#FFFFFF');
+		
+		obj.style.backgroundColor = '#FFFFFF';
+		obj.style.color = '#000000';
+	}
+</script>

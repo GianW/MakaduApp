@@ -1,0 +1,149 @@
+<!-- START BLOCK : CSS -->
+<link href="../../css/adm.css" rel="stylesheet" type="text/css">
+<link href="../../css/inputs.css" rel="stylesheet" type="text/css">
+<link href="../../css/skin.css" rel="stylesheet" type="text/css">
+<!-- END BLOCK : CSS -->
+
+<script language="JavaScript" type="text/javascript">
+//DELETA MULTIPLOS USUARIOS------------------------------------------------------------------------------------
+function deletaMulti(id){
+	var ok = confirm('Você tem certeza que deseja remover este registro?');
+	if(ok){
+		var deletaStringMulti = "";
+		var objects = document.getElementsByTagName('input');
+		var inc = 0;
+		
+		for(var no = 0; no < objects.length; no++){
+			if(objects[no].name == 'multi[]'){
+				if(objects[no].checked){
+					inc++;
+					if(deletaStringMulti.length>0)deletaStringMulti = deletaStringMulti + ',';
+					deletaStringMulti = deletaStringMulti + objects[no].value;
+				}
+			}			
+		}
+		
+		if(inc>0){
+			window.location.href = 'avisos_act.php?deleta='+deletaStringMulti+'&acao=multirem&pagina={pagina}&idevento={idevento}';
+		}else{
+			alert('Selecione ao menos um aviso');
+		}
+	}
+}
+
+//AJAX ATIVO---------------------------------------------------------------------------------------------------
+function ativo(id, tipoativo, obj) {
+	$.ajax({
+		type: "POST",
+		url: "../adm/_ativo.php",
+		data: "tipoativo=" + tipoativo + "&id=" + id,
+		success: function(resposta) {
+			if(obj.name == '0'){
+				obj.src = '../../imagens/win8/checked.jpg';
+				obj.name = '1';
+			}else if(obj.name == '1'){
+				obj.src = '../../imagens/win8/unchecked.jpg';
+				obj.name = '0';
+			}
+			return false;			
+		},
+		error: function() {
+			alert('erro');	
+		}
+	});
+}
+
+function popup(){
+	$.facebox(function($) {
+		jQuery.get('popup.php', function(html) {  
+			jQuery.facebox(html);  
+		}); 
+	})
+}
+
+<!-- START BLOCK : POPUP -->
+popup();
+<!-- END BLOCK : POPUP -->
+</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <!-- START BLOCK : VAZIO -->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="corSecundaria" style="position:fixed; left:0; top:70px; width:100%; border:#FFF 1px solid;">
+        <tr>
+          <td height="25" align="left" valign="middle" class="borda-right-5px-secundaria"><span style="padding-left:10px; font-size:14px; color:#FFF;">Nenhum registro encontrado. Clique no bot&atilde;o inserir para adicionar um novo registro.</span></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="corSecundaria" style="position:fixed; left:0; top:95px; width:100%; border:#FFF 1px solid;">
+          <tr>
+            <td width="200" height="25" align="left" valign="middle" class="borda-right-5px-secundaria" style="padding-left:0; padding-right:0;"><a href="avisos_busca.php?idevento={idevento}" rel="facebox" style="margin:0; padding:0;"><img src="../../imagens/win8/buscar.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a><a href="avisos.php?limpado=ok&amp;idevento={idevento}" style="margin:0; padding:0;"><img src="../../imagens/win8/limpar.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a></td>
+            <td align="left" valign="middle" class="borda-right-5px-secundaria"><span style="padding-left:10px; font-size:14px; color:#FFF;">Resultados: {numtotal}</span></td>
+            <td align="center" valign="middle" class="borda-right-5px-secundaria"><span><a href="../eventos/eventos_edit.php?idevento={idevento}&amp;acao=atu" style="padding-left:10px; font-size:14px; color:#FFF;">{nomeevento}</a></span></td>
+            <td width="100" align="right" valign="middle">
+            <a href="avisos_edit.php?acao=ins&amp;idevento={idevento}" style="margin:0; padding:0;"><img src="../../imagens/win8/inserir.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a></td>
+        </tr>
+        </table>      
+      <!-- END BLOCK : VAZIO -->
+	  <!-- START BLOCK : BLOCO -->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="corSecundaria" style="position:fixed; left:0; top:70px; width:100%; border:#FFF 1px solid;">
+          <tr>
+            <td width="200" height="25" align="left" valign="middle" class="borda-right-5px-secundaria" style="padding-left:0; padding-right:0;"><a href="avisos_busca.php?idevento={idevento}" rel="facebox" style="margin:0; padding:0;"><img src="../../imagens/win8/buscar.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a><a href="avisos.php?limpado=ok&amp;idevento={idevento}" style="margin:0; padding:0;"><img src="../../imagens/win8/limpar.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a></td>
+            <td align="left" valign="middle" class="borda-right-5px-secundaria"><span style="padding-left:10px; font-size:14px; color:#FFF;">Resultados: {numtotal}</span></td>
+            <td align="center" valign="middle" class="borda-right-5px-secundaria"><span><a href="../eventos/eventos_edit.php?idevento={idevento}&amp;acao=atu" style="padding-left:10px; font-size:14px; color:#FFF;">{nomeevento}</a></span></td>
+            <td width="100" align="right" valign="middle">
+            <a href="avisos_edit.php?acao=ins&amp;idevento={idevento}" style="margin:0; padding:0;"><img src="../../imagens/win8/inserir.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;" /></a></td>
+        </tr>
+        </table>
+        
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:0; padding:0; margin-top:32px; margin-bottom:30px;">
+          <tr style="margin:0; padding:0;">
+            <td width="3%" align="center" class="borda-right-5px" style="margin:0; padding:0;">&nbsp;</td>
+            <td width="10%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Data</span></td>
+            <td width="10%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Hor&aacute;rio</span></td>
+            <td width="60%" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Aviso</span></td>
+            <td width="5%" align="center" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Patrocinado</span></td>
+            <td width="5%" align="center" class="borda-right-5px" style="margin-bottom:0;"><span class="branco-bold">Ativo</span></td>
+            <td width="1%" height="30" align="right" class="corPrimaria" style="margin:0; padding:0;">&nbsp;</td>
+        </tr>
+          <!-- START BLOCK : PUBLICACOES -->
+          <tr onMouseOver="this.className='fundoListaHighlight'" onMouseOut="this.className='{bg}'" class='{bg}'>
+            <td height="33" align="center">
+              <input name="multi[]" id="multi[]" type="checkbox" value="{idaviso}"/>            
+            </td>
+            <td><span class="xP-5px-L">{dataaviso}</span></td>
+            <td><span class="xP-5px-L">{horaaviso}</span></td>
+            <td>
+            <span class="xP-5px-L">
+            {aviso}</span>
+            </td>
+            <td align="center"><img src="../../imagens/{checkpatrocinado}" width="20" height="20" onclick="ativo('{idaviso}','patrocinado', this);" id="checkpatrocinado{idaviso}" name="{statusativopatrocinado}" /></td>
+            <td align="center"><img src="../../imagens/{check}" width="20" height="20" onclick="ativo('{idaviso}','aviso', this);" id="check{idaviso}" name="{statusativo}"></td>
+            <td align="right" style="margin:0; padding:0;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  			  <tr>
+                <td style="margin:0; padding:0; border-right:#FFF 1px solid;">
+                <a href="avisos_edit.php?idaviso={idaviso}&amp;idevento={idevento}&amp;acao=atu"><img src="../../imagens/win8/editar.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;"></a></td>
+                <td width="100" align="right" style="margin:0; padding:0;"><a href="avisos_act.php?acao=rem&amp;idaviso={idaviso}&amp;idevento={idevento}" style="margin:0; padding:0;" onClick="return confirm('{confirm}')"><img src="../../imagens/win8/excluir.jpg" width="100" height="31" border="0" align="absmiddle" style="margin:0; padding:0;"></a></td>
+              </tr>
+            </table>            
+            </td>
+          </tr>
+          <!-- END BLOCK : PUBLICACOES -->
+        <tr>
+            <td colspan="7">
+              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="position:fixed; left:0; bottom:0; width:100%; border-top:#FFFFFF 1px solid;">
+              <tr>
+                   <td width="50%" height="28" align="center" valign="middle" class="corSecundaria">
+                   {paginacao}                        
+                   <td width="50%" align="left" valign="middle" class="corSecundaria">                   
+                   <td width="201" align="right" valign="middle" class="corSecundaria" style="border-left:#FFF 1px solid; border-right:#FFF 1px solid;"><img src="../../imagens/win8/removerselecionadas.jpg" width="201" height="31" align="absmiddle" onclick="deletaMulti({idevento})" style="cursor:pointer;" />                                      
+              </tr>
+              </table>                     
+            </td>
+   		</tr>
+        	</table>
+   	  <!-- END BLOCK : BLOCO -->    
+    </td>
+  </tr>
+</table>

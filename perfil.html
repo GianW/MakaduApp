@@ -1,0 +1,52 @@
+<!-- START BLOCK : CSS -->
+<link rel="stylesheet" type="text/css" href="css/geral.css" />
+<!-- END BLOCK : CSS -->
+
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//ANALYTICS #########################################################################################
+	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, "acessou", "perfil");
+});
+</script>	
+
+<style>
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+</style>
+
+<!-- CONTEUDO ################-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:35px; padding-left:35px; padding-right:35px;">
+  <tr>
+    <td align="center">  
+    <span class="titulo">Edite para alterar<br />
+    seu perfil cadastrado</span>
+    <br />
+    <br />
+<br />
+    <form name="cadastrar" id="cadastrar" style="margin:0; padding:0;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="40" align="center" valign="middle" class="normal" style="font-size:26px;">Nome Completo</td>
+      </tr>
+      <tr>
+        <td height="55" align="center" valign="middle"><input name="nomeperfil" type="text" id="nomeperfil" style="width:400px; height:45px; font-family: 'Raleway', Arial, serif; text-indent:10px; font-size:24px; border:#000 2px solid; padding:0; margin:0;" value="{nome}"></td>
+      </tr>
+      <tr>
+        <td height="40" align="center" valign="middle" class="normal" style="font-size:26px;">E-mail</td>
+      </tr>
+      <tr>
+        <td height="55" align="center" valign="middle"><input name="emailperfil" type="text" id="emailperfil" style="width:400px; height:45px; font-family: 'Raleway', Arial, serif; text-indent:10px; font-size:24px; border:#000 2px solid; padding:0; margin:0;" value="{email}"></td>
+      </tr>
+      <tr>
+        <td height="95" align="center" valign="bottom" class="normal"><div style="width:404px; height:55px; line-height:55px; color:#FFF; background:#478C47; text-align:center;" onClick="editarUser();">ALTERAR</div></td>
+      </tr>
+      </table>
+    </form></td>
+  </tr>
+</table>
+<br /><br />

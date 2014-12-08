@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta http-equiv="expires" content="0" >
+<meta http-equiv="cache-control" content="must-revalidate" />
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<title>Administra&ccedil;&atilde;o | Flame Design</title>
+
+<link href="../../css/adm.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/smoothness/jquery-ui.css" type="text/css" />
+<script src="../../js/jquery.maskedinput-1.3.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+function fechar(){
+    $(document).unbind('keydown.facebox')
+    $('#facebox').fadeOut(function() {
+      $('#facebox .content').removeClass().addClass('content');
+	  $(document).trigger('close.facebox');
+    })
+}
+
+$(function($){   
+	$("#buscadatacad").mask("99/99/9999");
+	$("#buscadatacadate").mask("99/99/9999");
+});
+
+$(document).ready(function(){
+	jQuery('#buscanome').autocomplete({
+      source: "usuarios_autocompletar_nome.php",
+      minLength: 1,
+    });
+});
+</script>
+
+</head>
+<body style="margin:0; padding:0;">
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1" style="padding:0; margin:0;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center" bgcolor="#336699"><table width="600" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#336699" style="padding:0; margin:0; width:600px;">
+        <tr>
+          <td height="70" align="center"><br />
+            <span class="branco-bold" style="font-size:14px;">Busca Cadastros<br />
+              </span> <br />
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="160" align="right" class="branco" style="margin-right:0; padding-bottom:4px;">Nome:</td>
+                <td align="left" style="padding-bottom:4px;"><input name="buscanome" type="text" class="input-g" id="buscanome" style="width:400px; margin-left:10px;" value="{buscanome}" /></td>
+              </tr>
+              <tr>
+                <td width="160" align="right" class="branco" style="margin-right:0;">E-mail:</td>
+                <td><span style="padding-bottom:4px;">
+                  <input name="buscaemail" type="text" class="input-g" id="buscaemail" style="width:400px; margin-left:10px;" value="{buscaemail}" />
+                </span></td>
+              </tr>
+              <tr>
+                <td width="160" align="right" class="branco" style="margin-right:0;">Palestrantes:</td>
+                <td><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-left:6px;">
+                  <tr>
+                    <td width="124" align="left" style="padding-bottom:4px;"><input name="buscapalestrante" type="checkbox" id="buscapalestrante" value="1" {chkpls} /></td>
+                    <td width="125" align="right" class="branco" style="margin-right:0">Administradores:</td>
+                    <td width="191" align="left" style="padding-bottom:4px;"><input name="buscaadministrador" type="checkbox" id="buscaadministrador" value="1" {chkadm} /></td>
+                    </tr>
+                  </table></td>
+              </tr>              
+              <tr>
+                <td width="160" align="right" class="branco" style="margin-right:0;">Data de cadastro:</td>
+                <td><table width="405" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-left:10px;">
+                  <tr>
+                    <td width="155" align="left" style="padding-bottom:4px;"><input name="buscadatacad" type="text" class="input-m" id="buscadatacad" style="width:150px;" value="{buscadatacad}" /></td>
+                    <td width="90" align="right" class="branco" style="margin-right:0">At&eacute;:</td>
+                    <td width="160" align="right" style="padding-bottom:4px;"><input name="buscadatacadate" type="text" class="input-m" id="buscadatacadate" style="width:150px;" value="{buscadatacadate}" /></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td width="160" align="right" class="branco" style="margin-right:0; padding-bottom:4px;">Ordenar por:</td>
+                <td><table width="405" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-left:10px;">
+                  <tr>
+                    <td width="48%" align="left" style="padding-bottom:4px;"><select name="ordenar" id="ordenar" style="width:155px;">
+                      <option value="-" selected>-</option>
+                      <option value="nome COLLATE latin1_swedish_ci" {orn1}>Nome</option>
+                      <option value="email" {orn2}>E-mail</option>
+                      <option value="datacadastro" {orn3}>Data de Cadastro</option>
+                    </select></td>
+                    <td width="7%" align="left" class="tit-branco" style="margin-right:0">&nbsp;</td>
+                    <td width="44%" align="right" style="padding-bottom:4px;"><select name="ordem" id="ordem" style="width:155px;">
+                      <option value="-" selected>-</option>
+                      <option value="ASC" {ord1}>Crescente</option>
+                      <option value="DESC" {ord2}>Decrescente</option>
+                      </select></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td height="28" valign="bottom">&nbsp;</td>
+                <td align="right" valign="bottom" class="footer" style="padding:0; margin:0;">&nbsp;</td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top:#FFF 1px solid; padding:0; margin:0;">
+    <tr>
+    <td width="200" valign="bottom" bgcolor="#014051" style="padding:0; margin:0;"><input type="image" style="padding:0; margin:0;" src="../../imagens/win8/buscar.jpg" align="absbottom" /><a href="usuarios.php?limpado=ok" style="padding:0; margin:0;"><img src="../../imagens/win8/limpar.jpg" width="100" height="31" border="0" align="absbottom" style="padding:0; margin:0;" /></a></td>
+    <td align="right" valign="bottom" bgcolor="#014051" class="footer" style="padding:0; margin:0; border-left:#FFF 1px solid; border-right:#FFF 1px solid;"></td>
+    <td width="99" align="right" valign="bottom" bgcolor="#014051" class="footer" style="padding:0; margin:0;"><a href="#" class="close"><img src="../../imagens/win8/fechar.jpg" width="99" height="31" align="absbottom" style="padding:0; margin:0;" onClick="fechar();"></a>
+      <input type="hidden" id="tipo" name="tipo" value="{tipo}" />
+      <input type="hidden" id="buscado" name="buscado" value="ok" />
+      <input type="hidden" id="disparabusca" name="disparabusca" value="ok" /></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

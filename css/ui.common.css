@@ -1,0 +1,41 @@
+
+	/*
+	Copyright (c) 2007, Yahoo! Inc. All rights reserved.
+	Code licensed under the BSD License:
+	http://developer.yahoo.net/yui/license.txt
+	version: 2.2.0
+	*/
+	/* end of yahoo reset and fonts */
+
+
+	div#wrapper 							{background:#fff; width:450px; margin:0 auto; padding:20px; border:10px solid #014051; border-width:0 10px 10px 10px;}
+	div#header								{position:relative; border-bottom:1px dotted; margin:0 0 10px; padding:0 0 10px; background:#093}
+	div#header p							{margin:0; padding:0;}
+	div#header h1							{margin:0; padding:0;}
+	ul#nav										{position:absolute; top:0; right:0; list-style:none; margin:0; padding:0;}
+	ul#nav li									{display:inline; padding:0 0 0 5px;}
+	ul#nav li a								{}
+	div#content								{}
+	div#footer								{margin:40px 0 0; border-top:1px dotted; padding:10px 0 0;}
+	.left {float:left;}
+	.right {float:right;}
+	.clear {clear:both;}
+	
+	
+	/* multiselect styles */
+	.multiselect {
+		width: 450px;
+		height: 180px;
+	}
+	
+	#switcher {
+		margin-top: 20px;
+	}
+	
+	.remove-all {
+		display: none;
+	}
+	
+	.add-all {
+		display: none;
+	}	

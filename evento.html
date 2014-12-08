@@ -1,0 +1,95 @@
+<!-- START BLOCK : CSS -->
+<link rel="stylesheet" type="text/css" href="css/geral.css" />
+<!-- END BLOCK : CSS -->
+
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//ANALYTICS #########################################################################################
+	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, "acessou", "evento");
+});
+</script>	
+
+<style>
+#seguir {
+	background: #8cf4d7; /* Old browsers */
+	background: -moz-linear-gradient(left,  #8cf4d7 0%, #bcfdb9 46%, #cafbb5 54%, #baeb75 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#8cf4d7), color-stop(46%,#bcfdb9), color-stop(54%,#cafbb5), color-stop(100%,#baeb75)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* IE10+ */
+	background: linear-gradient(to right,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cf4d7', endColorstr='#baeb75',GradientType=1 ); /* IE6-9 */
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	width:430px;
+	height:60px;
+	text-align:center;
+	line-height:60px;
+}
+
+#marcacao {
+	background: #baeb76; /* Old browsers */
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	width:60px;
+	height:60px;
+	text-align:center;	
+}
+</style>
+
+<!-- CONTEUDO ################-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:35px; padding-left:35px; padding-right:35px;">
+  <tr>
+    <td align="center"> 
+    <div style="text-align:center; margin:0; padding:0" onclick="mudaMenu(3); carregaModulo('programacao.php?idevento=' + idEvento, '1')"> 
+        <span class="titulo">{nomeevento}</span>
+        <br />
+        <span class="normal" style="color:#478C47; font-weight:bold; font-size:24px; line-height:30px;">{local}, {endereco}</span>
+        <br />
+        <span class="normal" style="color:#478C47; font-weight:bold; font-size:24px; line-height:30px;">{cidade}, {estado}</span>
+        <br />
+        <span class="normal" style="color:#478C47; font-weight:bold; font-size:24px; line-height:30px;">{datainicio}{datafim}</span> 
+        <br />
+        <br />
+    </div>
+    <!-- START BLOCK : PATROCINIO -->
+    <img src="{caminho}" border="0" style="margin-top:15px; margin-bottom:15px; width:95%; height:auto; min-height:200px;" />
+    <!-- END BLOCK : PATROCINIO -->
+    <br />    
+    <!--<table width="500" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="left"><div id="seguir" class="titulo" style="font-size:25px;" onclick="verificaLogin('seguir');">{textoseguir}</div></td>
+        <td align="right"><div id="marcacao" onclick="verificaLogin('seguir');"><img id="marca" name="{nome}" src="layout/{chave}seguir.png" width="44" height="40" style="margin-top:10px;" /></div></td>
+      </tr>
+    </table>
+    <br />-->
+    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="150" align="left" onClick="mudaMenu(3); carregaModulo('programacao.php?idevento=' + idEvento, '4'); 	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, 'acessou', 'download de capa');"><img src="layout/arquivo.png" width="67" height="82" style="margin-bottom:10px; margin-top:10px; margin-left:25px;" /></td>
+        <td align="left" onClick="mudaMenu(3); carregaModulo('programacao.php?idevento=' + idEvento, '4');	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, 'acessou', 'download de capa');"><span class="titulo">Fa&ccedil;a download do material da palestra</span></td>
+      </tr>
+    </table>
+	<div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="150" align="left" onClick="mudaMenu(3); carregaModulo('programacao.php?idevento=' + idEvento, '4'); 	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, 'acessou', 'pergunta de capa');"><img src="layout/interrogacao.png" width="73" height="72" style="margin-bottom:10px; margin-top:10px; margin-left:25px;" /></td>
+        <td align="left" onClick="mudaMenu(3); carregaModulo('programacao.php?idevento=' + idEvento, '4'); 	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, 'acessou', 'pergunta de capa');"><span class="titulo">Envie uma pergunta ao palestrante</span></td>
+      </tr>
+    </table> 
+    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <br />
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td style="text-align:justify;"><span class="normal" style="color:#000000; font-size:26px; line-height:36px; text-align:justify;">{release}</span></td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<br /><br /><br />

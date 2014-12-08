@@ -1,0 +1,83 @@
+<link href="../../css/calendario.css" rel="stylesheet" type="text/css">
+<link href="../../css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="../../js/valida.js" language="javascript"></script>
+<script language="Javascript" type="text/javascript" src="../../js/mascara.js"></script> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/themes/smoothness/jquery-ui.css" type="text/css" />
+
+<!-- START BLOCK : CSS -->
+<link href="../../css/adm.css" rel="stylesheet" type="text/css">
+<link href="../../css/inputs.css" rel="stylesheet" type="text/css">
+<link href="../../css/skin.css" rel="stylesheet" type="text/css">
+<!-- END BLOCK : CSS -->
+
+<script>
+function verifica(onome){
+	if(onome != ''){
+		$("#form1")[0].submit(); 
+	}else{
+		alert("Preencha a pergunta.");	
+		return false;
+	}
+}
+</script>
+
+<form action="respostas_act.php" method="post" enctype="multipart/form-data" name="form1" id="form1" > <!--onSubmit="return verifica(document.getElementById('nome').value);">-->
+<table width="100%" height="158"  border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+      <td valign="middle" id="tdconteudo">
+      
+      <table width="950" border="0" align="center" cellpadding="0" cellspacing="0" style="-webkit-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.2); -moz-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.2); box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.2);">
+        <tr>
+          <td>
+            <table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td height="31" bgcolor="#014051" style="padding-left:5px;"><span class="branco">Gerenciamento de Respostas, {acaotitulo}.</span></td>
+                    </tr>
+                  </table>
+                    <table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="430" valign="top">
+                      <table width="100%"  border="0" cellpadding="0" cellspacing="0" style="padding:10px; background:#dfe9eb;">
+                        <tr>
+                          <td width="450" valign="bottom"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="450" height="18" valign="bottom"><span class="tx-cinza66">Resposta: </span></td>
+                              </tr>
+                              <tr>
+                                <td><input name="resposta" type="text" class="input-g" id="resposta" value="{resposta}" size="67" maxlength="255" style="width:100%" /></td>
+                              </tr>
+                          </table></td>
+                          </tr>                                    
+                        </table>
+                      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background:#dfe9eb;">
+                        <tr>
+                          <td><div style="height:1px; width:100%; border-top:1px solid #014051;" /></div>
+                            </div></td>
+                        </tr>
+                      </table></td>
+                      </tr>
+                  </table>
+                    <table width="950" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td height="35" colspan="2" align="left">&nbsp;</td>
+                        </tr>
+                  </table>          
+          </td>
+        </tr>
+      </table>
+      
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="position:fixed; left:0; bottom:0; width:100%; border-top:#FFFFFF 1px solid;">
+          <tr>
+            <td width="97" height="28" valign="middle" bgcolor="#438699">{edicao}<input name="idpergunta" type="hidden" id="idpergunta" value="{idpergunta}" /><input name="idevento" type="hidden" id="idevento" value="{idevento}" /><input name="acao" type="hidden" id="acao" value="{acao}" /><img src="../../imagens/win8/salvar.jpg" width="97" height="31" align="absmiddle" id="salvar" style="cursor:pointer;" onclick="return verifica(document.getElementById('resposta').value);" /></td>
+            <td align="right" valign="middle" bgcolor="#438699" style="border-left:#FFF 1px solid;">&nbsp;</td>
+            <td width="114" align="right" valign="middle" bgcolor="#438699" style="border-left:#FFF 1px solid;"><a href="javascript:history.back(1);"><img src="../../imagens/win8/cancelar.jpg" width="114" height="31" align="absmiddle" /></a></td>
+          </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</form>

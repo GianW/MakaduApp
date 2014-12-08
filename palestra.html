@@ -1,0 +1,212 @@
+<!-- START BLOCK : CSS -->
+<link rel="stylesheet" type="text/css" href="css/geral.css" />
+<!-- END BLOCK : CSS -->
+
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//ANALYTICS #########################################################################################
+	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, "acessou", "programa");
+});
+</script>	
+
+<style>
+.sobre {
+	background: #8cf4d7; /* Old browsers */
+	background: -moz-linear-gradient(left,  #8cf4d7 0%, #bcfdb9 46%, #cafbb5 54%, #baeb75 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#8cf4d7), color-stop(46%,#bcfdb9), color-stop(54%,#cafbb5), color-stop(100%,#baeb75)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* IE10+ */
+	background: linear-gradient(to right,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cf4d7', endColorstr='#baeb75',GradientType=1 ); /* IE6-9 */
+	
+	width:95%;
+	height:44px;
+	line-height:44px;
+	text-align:center;
+	font-family: 'Raleway', Arial, serif;
+	font-size:28px;
+}
+
+#marcacao {
+	background: #baeb76; /* Old browsers */
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	width:60px;
+	height:60px;
+	text-align:center;	
+}
+</style>
+
+<script type="text/javascript">
+function abreResposta(qualPergunta){
+	if(document.getElementById('resposta' + qualPergunta).title == '0'){
+		document.getElementById('resposta' + qualPergunta).style.display = 'block';
+		document.getElementById('resposta' + qualPergunta).title = '1';
+		document.getElementById('botaoabre' + qualPergunta).src = 'layout/menos.png';
+		
+		//ANALYTICS #########################################################################################
+		analytics(idUser, token, idEvento, idProgramacao, idAviso, qualPergunta, "abriu", "resposta");
+	}else{
+		document.getElementById('resposta' + qualPergunta).style.display = 'none';
+		document.getElementById('resposta' + qualPergunta).title = '0';
+		document.getElementById('botaoabre' + qualPergunta).src = 'layout/mais.png';
+	}
+}
+
+var aberto = 1;
+var altura = $('#texto').height();
+//$('#texto').css('height','0');
+
+setTimeout(function(){$('#texto').animate({height: '0'}, 300, "linear"); aberto = 0;}, 10000);
+
+function abreTexto(){
+	if(aberto == 0){
+		$('#texto').animate({height: altura + 'px'}, 300, "linear");
+		aberto = 1;
+		document.getElementById('botaoabre').src = 'layout/menos.png';
+		
+		//ANALYTICS #########################################################################################
+		analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, "abriu", "sobre esta palestra");
+	}else{
+		$('#texto').animate({height: '0'}, 300, "linear");
+		aberto = 0;
+		document.getElementById('botaoabre').src = 'layout/mais.png';
+	}
+}
+</script>
+
+<!-- CONTEUDO ################-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:35px; padding-left:35px; padding-right:35px;">
+  <tr>
+    <td align="center">  
+    <div style="width:95%; margin:0; padding:0; text-align:left;">
+        <span class="titulo" style="text-align:left;">{titulo}</span>
+        <br />
+        <span class="normal" style="color:#478C47; font-weight:bold; font-size:18px; line-height:18px;">{localprograma}  {dataprograma} - {horainicio}</span>
+    </div>
+    <br />
+    <!-- START BLOCK : SOBREPAL -->
+  	<div id="sobre" class="sobre" onclick="abreTexto();" style="text-align:center; margin-bottom:0;">
+    	<div style="float:left; width:34px; text-align:center; margin-left:5px;"><img src="layout/mais.png" width="34" height="34" id="botaoabre" style="margin-top:5px;" /></div>
+        <div>SOBRE ESTA ATIVIDADE</div>
+    </div>
+	<br />
+    <div id="texto" style="width:95%; text-align:left; overflow:hidden; text-align:justify; margin-top:0;" onclick="abreTexto();">
+        <!-- START BLOCK : DESCRICAO -->
+        <span class="normal" style="color:#000000; font-size:26px; line-height:35px; text-align:justify;">{descricao}</span>
+        <br />
+        <br />
+        <!-- END BLOCK : DESCRICAO -->
+        <!-- START BLOCK : MULTIPLOS -->
+        <span class="normal" style="color:#000000; font-size:26px; line-height:35px;">Palestrantes:<br /></span> 
+        <!-- END BLOCK : MULTIPLOS -->    
+        <!-- START BLOCK : UNICO -->
+        <span class="normal" style="color:#000000; font-size:26px; line-height:35px;">Palestrante:<br /></span> 
+        <!-- END BLOCK : UNICO -->                
+        <!-- START BLOCK : PALESTRANTE -->
+        <span class="normal" style="color:#478C47; font-size:30px; line-height:37px; font-weight:bold;">&#8226; {nome}<br /></span> 
+        <!-- END BLOCK : PALESTRANTE -->
+        <!-- START BLOCK : SOBREPALESTRANTE -->
+        <span class="normal" style="color:#000000; font-size:28px; line-height:35px; text-align:justify;">{sobrepalestrante}</span> 
+        <br />
+        <!-- END BLOCK : SOBREPALESTRANTE -->
+        <br />
+        <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+        <br />
+    </div>
+    <!-- END BLOCK : SOBREPAL -->
+    
+    <!-- START BLOCK : ARQUIVO --> 
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="150" align="left" onClick="verificaLogin('material');"><img src="layout/arquivo.png" width="67" height="82" style="margin-bottom:10px; margin-top:10px; margin-left:25px;" /></td>
+        <td align="left" onClick="verificaLogin('material');"><span class="titulo">Fa&ccedil;a download do material da palestra</span></td>
+      </tr>
+    </table>
+    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <!-- END BLOCK : ARQUIVO --> 
+    
+    <!-- START BLOCK : ARQUIVOQUANDO --> 
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="150" align="left" onClick="verificaLogin('materialquando');"><img src="layout/arquivo.png" width="67" height="82" style="margin-bottom:10px; margin-top:10px; margin-left:25px;" /></td>
+        <td align="left" onClick="verificaLogin('materialquando');"><span class="titulo">Fa&ccedil;a download do material quando dispon&iacute;vel</span></td>
+      </tr>
+    </table>
+    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <!-- END BLOCK : ARQUIVOQUANDO -->     
+    
+    <!-- START BLOCK : PERGUNTAS --> 
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="150" align="left" onClick="verificaLogin('perguntar');"><img src="layout/interrogacao.png" width="73" height="72" style="margin-bottom:10px; margin-top:10px; margin-left:25px;" /></td>
+        <td align="left" onClick="verificaLogin('perguntar');"><span class="titulo">Envie uma pergunta ao palestrante</span></td>
+      </tr>
+    </table>
+    <!-- END BLOCK : PERGUNTAS --> 
+    
+    <!-- START BLOCK : BLOCOPERGUNTAS -->
+    <br />
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center" class="sobre">PERGUNTAS JÁ ENVIADAS</td>
+      </tr>
+    </table>
+    
+        <!-- START BLOCK : APERGUNTA -->
+        <div id="tit" style="width:95%; padding-bottom:20px; padding-top:20px;">
+            <div style="text-align:left; ">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="34" valign="top">
+                    	<div id="botaoabrep{idpergunta}" onclick="abreResposta({idpergunta})"  class="titulo" style="height:100%; text-align:center; margin-right:15px; float:left; display:inline-block; width:34px;">
+                        <img id="botaoabre{idpergunta}" src="layout/mais.png" width="34" height="34" style="margin-top:5px;" />
+                        </div>
+                    </td>
+                    <td>
+                    	<div style="text-align:left;">               
+                    		<div class="titulo">{pergunta}</div>
+                    		<div class="normal" style="color:#478C47; font-weight:bold; font-size:18px; line-height:26px;">{questionador}</div>
+               		  </div>
+                    </td>
+                  </tr>
+                </table>            
+			</div> 
+        
+            <div id="resposta{idpergunta}" title="0" style="display:none;">
+            	<div style="width:95%; height:0; border-top:#000 1px solid; margin-top:20px;"></div>
+                <!-- START BLOCK : RESPOSTA -->
+                <div class="normal" style="color:#000000; background:#FAFFFD; width:95%; font-size:22px; line-height:30px; text-align:left; padding-bottom:20px; padding-top:20px; padding-left:15px;">
+                {resposta}<br />
+                <span style="color:#478C47; font-size:16px; font-weight:bold;">{pessoa}</span>
+                </div>
+                <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+                <!-- END BLOCK : RESPOSTA -->
+                
+                <!-- START BLOCK : RESPONDER -->
+                <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:20px; margin-top:20px;">
+                  <tr>
+                    <td><input name="aresposta{idpergunta}" type="text" id="aresposta{idpergunta}" style="width:100%; height:45px; font-family: 'Raleway', Arial, serif; text-indent:10px; font-size:24px; border:#000 2px solid; padding:0; margin:0;" value="" /></td>
+                    <td width="30%" class="normal">
+                    	<div style="width:100%; height:49px; line-height:49px; color:#FFF; background:#478C47; font-size:17px; text-align:center;" onclick="idPergunta = '{idpergunta}'; verificaLogin('responder');">RESPONDER</div>
+                    </td>
+                  </tr>
+                </table>
+                <!-- END BLOCK : RESPONDER -->  
+            </div>      
+        
+        </div>
+        
+        <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+                    
+        <!-- END BLOCK : APERGUNTA --> 
+    <!-- END BLOCK : BLOCOPERGUNTAS -->        
+    
+    </td>
+  </tr>
+</table>

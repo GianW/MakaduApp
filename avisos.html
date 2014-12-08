@@ -1,0 +1,139 @@
+<!-- START BLOCK : CSS -->
+<link rel="stylesheet" type="text/css" href="css/geral.css" />
+<!-- END BLOCK : CSS -->
+
+<meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//ANALYTICS #########################################################################################
+	analytics(idUser, token, idEvento, idProgramacao, idAviso, idPergunta, "acessou", "avisos");
+});
+</script>	
+
+<style>
+.titulos {
+	background: #8cf4d7; /* Old browsers */
+	background: -moz-linear-gradient(left,  #8cf4d7 0%, #bcfdb9 46%, #cafbb5 54%, #baeb75 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#8cf4d7), color-stop(46%,#bcfdb9), color-stop(54%,#cafbb5), color-stop(100%,#baeb75)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* IE10+ */
+	background: linear-gradient(to right,  #8cf4d7 0%,#bcfdb9 46%,#cafbb5 54%,#baeb75 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8cf4d7', endColorstr='#baeb75',GradientType=1 ); /* IE6-9 */
+	height:18px;
+	text-align:center;
+}
+
+.tit {	
+	width:95%;
+	height:auto;
+	padding-top:20px;
+	padding-bottom:20px;
+	line-height:40px;
+	text-align:center;
+	font-family: 'Raleway', Arial, serif;
+	font-size:32px;
+	background-color:#FFFFFF;
+	text-align:left;
+}
+</style>
+
+<script type="text/javascript">
+function abreTextoAviso(qualAviso){
+	if(document.getElementById('detalhe' + qualAviso).title == '0'){
+		$('#detalhe' + qualAviso).css('display', 'block');
+		document.getElementById('detalhe' + qualAviso).title = '1';
+		document.getElementById('botaoabre' + qualAviso).src = 'layout/menos.png';
+		
+		//ANALYTICS #########################################################################################
+		analytics(idUser, token, idEvento, idProgramacao, qualAviso, idPergunta, "abriu", "aviso");		
+	}else{
+		$('#detalhe' + qualAviso).css('display', 'none');
+		document.getElementById('detalhe' + qualAviso).title = '0';
+		document.getElementById('botaoabre' + qualAviso).src = 'layout/mais.png';
+	}
+}
+</script>
+
+<!-- CONTEUDO ################-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:35px; padding-left:35px; padding-right:35px;">
+  <tr>
+    <td align="center">  
+    <span class="titulo">{nomeevento}</span><br />
+    <br />
+  	
+    <!-- START BLOCK : TITULOPATROCINADOS -->
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center" class="titulos"><div class="titulo" style="font-size:13px; margin:0; padding:0;">AVISOS PATROCINADOS</div></td>
+      </tr>
+    </table>
+    <!-- END BLOCK : TITULOPATROCINADOS -->
+    
+    <!-- START BLOCK : PATROCINADO -->
+    <div id="tit" class="tit">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="44" valign="top">
+            	<div onclick="abreTextoAviso({idaviso})" class="titulo" style="width:34px; height:34px; float:left; clear:both; text-align:center; margin-right:15px;"><img id="botaoabre{idaviso}" src="layout/mais.png" width="34" height="34" /></div>
+            </td>
+            <td>
+           	  <div style="line-height:37px; font-size:28px;">{aviso}</div>
+            </td>
+          </tr>
+        </table>
+    <div id="detalhe{idaviso}" title="0" class="normal" style="color:#478C47; font-size:22px; line-height:30px; display:none; margin-left:48px;">{detalhes}</div>
+    </div>
+    <!-- START BLOCK : RISCOPATROCINADO -->
+    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <!-- END BLOCK : RISCOPATROCINADO -->             
+    <!-- END BLOCK : PATROCINADO -->     
+    
+    <!-- START BLOCK : TITULONORMAIS -->
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center" class="titulos"><div class="titulo" style="font-size:14px; margin:0; padding:0;"></div></td>
+      </tr>
+    </table>
+    <!-- END BLOCK : TITULONORMAIS -->
+    
+    <!-- START BLOCK : NORMAL -->
+    <div id="tit" class="tit">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="44" valign="top">
+            	<div onclick="abreTextoAviso({idaviso})" class="titulo" style="width:34px; height:34px; float:left; clear:both; text-align:center; margin-right:15px;"><img id="botaoabre{idaviso}" src="layout/mais.png" width="34" height="34" /></div>
+            </td>
+            <td>
+           	  <div style="line-height:37px; font-size:28px;">{aviso}</div>
+            </td>
+          </tr>
+        </table>  
+    <div id="detalhe{idaviso}" title="0" class="normal" style="color:#478C47; font-weight:bold; font-size:22px; line-height:30px; display:none; margin-left:48px;">{detalhes}</div>
+    </div>
+    <!-- START BLOCK : RISCONORMAL -->
+    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <!-- END BLOCK : RISCONORMAL -->             
+    <!-- END BLOCK : NORMAL --> 
+    
+    <!-- START BLOCK : VAZIO -->
+    <div style="width:95%; height:0; border-top:#000 1px solid;"></div>
+    <div id="tit" class="tit">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center">
+           	  <div style="line-height:37px; font-size:28px;">Sem avisos até o momento.</div>
+            </td>
+          </tr>
+        </table>  
+    <div id="detalhe{idaviso}" title="0" class="normal" style="color:#478C47; font-weight:bold; font-size:22px; line-height:30px; display:none; margin-left:48px;">{detalhes}</div>
+    </div>
+           
+    <!-- END BLOCK : VAZIO -->           
+    
+    </td>
+  </tr>
+</table>
+<br /><br />

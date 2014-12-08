@@ -1,0 +1,171 @@
+/*==================================================================
+===> DECLARAÇÕES GERAIS
+==================================================================*/
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-size:11px;
+	color:#333;
+}
+
+body {
+	margin:0;
+	padding:0;
+	background-color: #FFFFFF;
+}
+
+a:active
+{
+	outline:none;
+	border:none;
+}
+
+a:focus
+{
+	-moz-outline-style:none;
+	outline:none;
+	border:none;
+}
+
+a { 
+	text-decoration:none;
+	outline:none;
+	border:none;
+}
+
+a:hover {
+	text-decoration:none; 
+	outline:none;
+	border:none;
+}
+
+img {
+	border:0px;
+}
+
+/*==================================================================
+===> LOGIN DA ADM
+==================================================================*/
+.submit {
+	border:#1E5582 1px solid;
+	color:#1E5582;
+	padding:0 5px 0 5px;
+	height:18px;
+}
+.tit-branco {
+	color:#FFF;
+	font-size:13px;
+	font-weight:bold;
+}
+.azul-escuro-bold {
+	color:#1E5582;
+	font-weight:bold;
+}
+
+/*==================================================================
+===> ESTILOS DE FONTE
+==================================================================*/
+.branco-bold {
+	color:#FFF;
+	font-size:13px;
+}
+.tit-negrito {
+	color:#000000;
+}
+.negrito {
+	font-weight:bold;
+	color:#333333;
+	font-size:11px;
+}
+.pequeno {
+	font-size:10px;
+	color:#333333;
+}
+.branco {
+	font-size:13px;
+	color:#FFFFFF;
+}
+.verm-bold {
+	color:#990000;
+	font-weight:bold;
+}
+
+/*==================================================================
+===> LAYOUT EXTERNO
+==================================================================*/
+
+.contgeral {
+	padding:5px 5px 5px 5px;
+	background-color: 4d4d4f;
+}
+
+.contgeralint {
+/*	padding:5px 5px 5px 5px;*/
+	background-color: 4d4d4f;
+/*	border-top:#000000 1px solid;
+	border-bottom:#000000 1px solid;
+	border-left:#000000 1px solid;
+	border-right:#000000 1px solid;*/
+}
+
+.conttopo {
+	color:#FFFFFF;
+}
+
+.contorno {
+	border-top:#000000 1px solid;
+	border-bottom:#000000 1px solid;
+	border-left:#000000 1px solid;
+	border-right:#000000 1px solid;
+	padding:0;
+	margin:0;
+}
+
+.contcont {
+	padding: 5px 5px 5px 5px;
+}
+
+/*==================================================================
+===> OUTROS ESTILOS
+==================================================================*/
+.tab-bemvindo {
+	border:#666 1px solid;
+}
+
+.sortB {
+	/*background:#FFF;*/
+	border-right:#fff 1px solid;
+	padding:0 2px 0 2px;
+}
+
+.sortC {
+	/*background:#EAEAEA;*/
+	border-right:#fff 1px solid;
+	padding:0 2px 0 2px;
+}
+
+.sortD {
+/*	background:#FFD7D8;*/
+	border-right:#fff 1px solid;
+	padding:0 2px 0 2px;
+}
+
+#categorias {
+	padding:10px;
+}
+
+div#container {
+	width:400px;
+}
+
+/*==================================================================
+===> SPACERS
+==================================================================*/
+.xP-5px-L	{ padding-left:5px; }
+.xP-5px-R	{ padding-right:5px; }
+
+.xP-10px-L 	{ padding:0 0 0 10px; }
+.xP-10px-R 	{ padding:0 10px 0 0; }
+.xP-10px 	{ padding:10px; }
+
+.xM-5px-R	{ margin-right:5px; }
+.xM-5px-LR	{ margin:0 5px 0 5px; }

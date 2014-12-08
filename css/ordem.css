@@ -1,0 +1,55 @@
+div#imageFloatContainer {
+
+}
+
+div#imageFloatContainer img {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.imageBox_all,.imageBoxHighlighted{
+	width:140px;	/* Total width of each image box */
+	height:190px;	/* Total height of each image box */
+	float:left;
+
+}
+.imageBox_theImage{
+	cursor:move;
+	width:90px;	/* Width of image */
+	height:90px;	/* Height of image */
+	
+	/* 
+	Don't change these values *
+	*/
+	background-position: center center;
+	background-repeat: no-repeat;		
+	margin: 0 auto;
+	margin-bottom:0px;
+}
+
+.imageBox_theImage{
+	border:2px solid #999999;	/* Border color for not selected images */
+	padding:1px;
+}
+.imageBoxHighlighted .imageBox_theImage{
+	border:3px solid #316AC5;	/* Border color for selected image */
+	padding:0px;
+
+}
+.imageBoxHighlighted span{	/* Title of selected image */
+	background-color: #316AC5;
+	color:#FFFFFF;
+	padding:0px;
+}
+
+.imageBox_label{	/* Title of images - both selected and not selected */
+	text-align:center;
+	font-family: arial;
+	font-size:9px;		
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top: 0px;
+	width: 120px;
+	height:70px;
+	border: 1px solid #CCCCCC;
+}

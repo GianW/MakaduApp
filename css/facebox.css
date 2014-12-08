@@ -1,0 +1,62 @@
+#facebox {
+  margin-top: 0px; 
+  position: fixed; 
+  width: 100%;  
+  top: 0;
+  left: 0;
+  z-index: 9999999999;
+  text-align: center; 
+}
+
+#facebox .popup {
+  position: relative;
+}
+
+#facebox .sombraface {
+  -webkit-box-shadow: 0 0 4px 4px #002731;
+  -moz-box-shadow: 0 0 4px 4px #002731;
+  box-shadow: 0 0 4px 4px #002731;  
+}
+
+#facebox table {
+  margin: auto;
+  border-collapse: collapse;
+  padding:0; 
+}
+
+#facebox .body {
+  background: #336699;
+  width: 700px;
+  border: 1px solid #FFF;
+  border-top: none;
+  padding:0;
+  text-align:center;  
+}
+
+#facebox .loading {
+  text-align: center;
+  width:100%;
+  height:100px;
+}
+
+#facebox .image {
+  text-align: center;
+}
+
+#facebox img {
+  border: 0;
+}
+
+#facebox .footer {
+  padding-top: 5px;
+  margin-top: 10px;
+  text-align: right;
+}
+
+#facebox .tl, #facebox .tr, #facebox .bl, #facebox .br {
+  overflow: hidden;
+  padding: 0;
+}
+
+
+
